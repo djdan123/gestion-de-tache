@@ -1,0 +1,61 @@
+# script créé le : Tue Apr 08 12:35:46 PDT 2025 -   syntaxe MySQL ;
+
+# use  VOTRE_BASE_DE_DONNEE ;
+
+DROP TABLE IF EXISTS Employe ;
+CREATE TABLE Employe (id_employe_Employe BIGINT_AUTO_INCREMENT NOT NULL,
+nomEmplo_Employe CHAR,
+prenomEmplo_Employe CHAR,
+email_Employe CHAR,
+poste_Employe CHAR,
+date_embo_Employe CHAR,
+id_notif_Notification BIGINT_AUTO_INCREMENT NOT NULL,
+id_equipe INT NOT NULL,
+PRIMARY KEY (id_employe_Employe) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Tache ;
+CREATE TABLE Tache (id_tache_Tache BIGINT_AUTO_INCREMENT NOT NULL,
+titre_Tache CHAR,
+id_projet INT NOT NULL,
+PRIMARY KEY (id_tache_Tache) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Notification ;
+CREATE TABLE Notification (id_notif_Notification BIGINT_AUTO_INCREMENT NOT NULL,
+message_Notification CHAR,
+est_l_Notification BOOL,
+PRIMARY KEY (id_notif_Notification) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Projet ;
+CREATE TABLE Projet (id_projet int AUTO_INCREMENT NOT NULL,
+nom_projet INT,
+PRIMARY KEY (id_projet) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Equipe ;
+CREATE TABLE Equipe (id_equipe int AUTO_INCREMENT NOT NULL,
+nom_equipe INT,
+description_Equipe CHAR,
+PRIMARY KEY (id_equipe) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS affectation ;
+CREATE TABLE affectation (id_employe_Employe BIGINT_AUTO_INCREMENT NOT NULL,
+id_tache_Tache BIGINT_AUTO_INCREMENT NOT NULL,
+id_affectation INT,
+date_affec_affectation_ BIGINT,
+PRIMARY KEY (id_employe_Employe,
+ id_tache_Tache) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Participer ;
+CREATE TABLE Participer (id_equipe int AUTO_INCREMENT NOT NULL,
+id_projet INT NOT NULL,
+id_participation INT,
+PRIMARY KEY (id_equipe,
+ id_projet) ) ENGINE=InnoDB;
+
+ALTER TABLE Employe ADD CONSTRAINT FK_Employe_id_notif_Notification FOREIGN KEY (id_notif_Notification) REFERENCES Notification (id_notif_Notification);
+
+ALTER TABLE Employe ADD CONSTRAINT FK_Employe_id_equipe FOREIGN KEY (id_equipe) REFERENCES Equipe (id_equipe);
+ALTER TABLE Tache ADD CONSTRAINT FK_Tache_id_projet FOREIGN KEY (id_projet) REFERENCES Projet (id_projet);
+ALTER TABLE affectation ADD CONSTRAINT FK_affectation_id_employe_Employe FOREIGN KEY (id_employe_Employe) REFERENCES Employe (id_employe_Employe);
+ALTER TABLE affectation ADD CONSTRAINT FK_affectation_id_tache_Tache FOREIGN KEY (id_tache_Tache) REFERENCES Tache (id_tache_Tache);
+ALTER TABLE Participer ADD CONSTRAINT FK_Participer_id_equipe FOREIGN KEY (id_equipe) REFERENCES Equipe (id_equipe);
+ALTER TABLE Participer ADD CONSTRAINT FK_Participer_id_projet FOREIGN KEY (id_projet) REFERENCES Projet (id_projet);
