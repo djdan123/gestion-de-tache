@@ -172,7 +172,7 @@ public class FenetreStatistiques extends JFrame {
         
         panel.add(creerCarteInfo("Tâches totales", "0", new Color(70, 130, 180)));
         panel.add(creerCarteInfo("Tâches en cours", "0", new Color(255, 165, 0)));
-        panel.add(creerCarteInfo("Employés actifs", "0", new Color(34, 139, 34)));
+        panel.add(creerCarteInfo("Employés actifs", "0", new Color(35, 149, 34)));
         panel.add(creerCarteInfo("Projets en cours", "0", new Color(147, 112, 219)));
         
         return panel;

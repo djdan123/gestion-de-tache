@@ -49,10 +49,13 @@ public class FenetreTache extends JFrame {
 
         // Panel des boutons
         JPanel boutonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        
         boutonsPanel.add(ajouter);
         boutonsPanel.add(modifier);
         boutonsPanel.add(supprimer);
-
+        ajouter.setBackground(Color.BLUE);
+        ajouter.setPreferredSize(new Dimension(100,100));
+        boutonsPanel.setBackground(Color.red);
         // Configuration principale
         add(new JScrollPane(liste), BorderLayout.CENTER);
         add(boutonsPanel, BorderLayout.SOUTH);

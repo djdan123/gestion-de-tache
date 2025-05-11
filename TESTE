@@ -1,0 +1,100 @@
+Pour faire le teste connecter en tant que Admin avec ce : 
+NOM: Admin 
+MOT DE PASSE : admin123
+pour faire le teste en tant qu'Employer conecter vous avec : 
+Nom: Employe
+MOT DE PASSE : employe123
+
+Developpe par :
+
+Daniel Matondo Lenzo , Don Daniel MAHORO
+BST P11 BAC2 
+2024-2025.
+# 📋 Gestion des Tâches - Entreprise
+
+**Application Java Swing** de gestion des tâches avec système de notifications en temps réel
+
+## 🛠️ Technologies utilisées
+- **Langage** : Java 11+
+- **Interface** : Swing (JFrame, JTable, JFreeChart)
+- **Base de données** : MySQL
+- **Gestion de projet** : NetBeans (Ant)
+- **Bibliothèques** : 
+  - JFreeChart (statistiques)
+  - MySQL Connector/J
+
+## 🏗️ Structure du projet
+ src/
+├── main/
+│ ├── java/
+│ │ ├── ui/ # Interfaces graphiques
+│ │ │ ├── FenetreConnexion.java
+│ │ │ ├── FenetrePrincipale.java
+│ │ │ ├── FenetreTache.java
+│ │ │ ├── FenetreStatistiques.java
+│ │ │ └── FenetreNotification.java
+│ │ ├── dao/ # Accès aux données
+│ │ │ ├── DatabaseConnection.java
+│ │ │ ├── TacheDAO.java
+│ │ │ └── NotificationDAO.java
+│ │ └── model/ # Classes métier
+│ │ ├── Tache.java
+│ │ ├── Employe.java
+│ │ └── Projet.java
+│ └── resources/ # Icônes/images
+└── lib/ # Bibliothèques externes
+├── jfreechart-1.5.3.jar
+└── jcommon-1.0.24.jar
+
+## 🎯 Fonctionnalités implémentées
+1. **Authentification sécurisée**
+   - Rôles admin/employé
+   - Hachage des mots de passe
+
+2. **Gestion des tâches**
+   - CRUD complet (Create, Read, Update, Delete)
+   - Assignation aux employés
+   - Filtrage par statut (À faire/En cours/Terminé)
+
+3. **Tableau de bord statistique**
+   - Graphiques JFreeChart :
+     - Répartition des tâches
+     - Charge des employés
+     - Progression des projets
+
+4. **Système de notifications**
+   - Alertes temps réel (polling)
+   - Marquage comme lues
+   - Historique
+
+## 🔌 Configuration requise
+1. **Base de données** :
+```sql
+CREATE DATABASE gestion_taches;
+USE gestion_taches;
+-- Exécuter le script SQL fourni dans /sql/schema.sql
+5.Variables d'environement 
+# Dans DatabaseConnection.java
+db.url=jdbc:mysql://localhost:3306/gestion_taches
+db.user=root
+db.password=
+
+🧠 Concepts techniques mis en œuvre
+Pattern MVC : Séparation claire Modèle-Vue-Contrôleur
+
+DAO : Couche d'accès aux données
+
+SwingWorker : Threading pour les opérations longues
+
+Observer Pattern : Notifications temps réel
+
+SQL avancé : Jointures, vues, agrégations
+
+
+🔮 Améliorations possibles
+
+Export PDF des statistiques
+
+Calendrier des échéances
+
+Messagerie interne

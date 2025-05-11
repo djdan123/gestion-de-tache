@@ -12,7 +12,7 @@ public class FenetreConnexion extends JFrame {
     private JPasswordField pfPassword;
 
     public FenetreConnexion() {
-        setTitle("Connexion");
+        setTitle("se connecter");
         setSize(350, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
