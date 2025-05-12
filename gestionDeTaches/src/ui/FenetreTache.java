@@ -55,7 +55,7 @@ public class FenetreTache extends JFrame {
         boutonsPanel.add(supprimer);
         ajouter.setBackground(Color.BLUE);
         ajouter.setPreferredSize(new Dimension(100,100));
-        boutonsPanel.setBackground(Color.red);
+        boutonsPanel.setBackground(Color.blue);
         // Configuration principale
         add(new JScrollPane(liste), BorderLayout.CENTER);
         add(boutonsPanel, BorderLayout.SOUTH);
